@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+    <title>Document</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.21.1/axios.min.js"
+        integrity="sha512-bZS47S7sPOxkjU/4Bt0zrhEtWx0y0CRkhEp8IckzK+ltifIIE9EMIMTuT/mEzoIMewUINruDBIR/jJnbguonqQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+</head>
+<body>
+    <form onsubmit="addJobForm()">
+        <label for="companyname"><strong>Companyname</strong>
+            <input type="text" placeholder="companyname" name="companyname" id="companyname" required>
+        </label><br>
+        <label for ="skills"><strong>Skills</strong></label>
+        <select id="skills" required>
+            <option>
+                javascript
+                </option>
+                <option>
+                    angular
+                </option>
+        </select>
+        <br>
+
+        <label for="image"><strong>imageUrl</strong>
+            <!-- <input type="text" placeholder="Enter image" name="image" id="imageUrl" required> -->
+            <input type="file" required name="image" id="imageUrl">
+        </label><br>
+        
+        
+
+
+<button >Apply</button>
+
+    
+ 
+    </form>
+    <script src="validator.js"></script>
+     <script src="addjob.js"></script>
+</body>
+</html>
