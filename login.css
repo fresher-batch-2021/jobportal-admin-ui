@@ -104,3 +104,12 @@ body {
 span a {
 	color: #BBB;
 }
+table, th, td {
+    border:1px solid black;
+  }
+  .navbarimg{
+	width: 40px;
+	height: 40px;
+	margin-top: 8px;
+	margin-left: 12px;
+  }

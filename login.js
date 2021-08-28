@@ -10,12 +10,8 @@ function login() {
         
         UserService.login(email, password)
           .then(res => {
-            
-        
-            
             localStorage.setItem("IsLoggedIn",JSON.stringify(true));
-  
-             localStorage.setItem("userEmail", email);
+           localStorage.setItem("userEmail", email);
             console.log(res.data)
              //savin email in local storage
              alert(res.data)
