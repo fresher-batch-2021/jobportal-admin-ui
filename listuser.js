@@ -23,8 +23,11 @@ function formRegisterTableData(jobs){
         
         let imageUrl = "images/" + jobObj.imageUrl;
         content += `<tr><td>${i++}</td><td>
-        ${jobObj.name}</td><td>${jobObj.email}</td><td>${jobObj.appliedJobs}</td></tr>`;
+        ${jobObj.name}</td><td>${jobObj.email}</td>
+        <td>${jobObj.appliedJobs}</td>
+        </tr>`;
     }
+    
     console.log(content);
     document.querySelector("#list-user").innerHTML = content;
 }
