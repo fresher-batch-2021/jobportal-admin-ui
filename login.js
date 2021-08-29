@@ -10,20 +10,24 @@ function login() {
       
       UserService.login(email, password)
         .then(res => {
-          
-      
-          
+          console.log(res.data);
+      if(res.data.docs.length==0){
+        alert('please register')
+        window.location.href='register.html'
+      }
+          else{
           localStorage.setItem("IsLoggedIn",JSON.stringify(true));
 
            localStorage.setItem("userEmail", email);
           console.log(res.data)
            //savin email in local storage
-           alert(res.data)
+           
           localStorage.setItem("userObj",JSON.stringify(res.data.docs[0]))
           console.log(JSON.stringify(res.data.docs))
            alert("Login successful");
           
-          window.location.href = "index.html";
+           window.location.href = "index.html";
+        }
         })
         .catch((err) => {
           console.log(err.response.data);

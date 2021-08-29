@@ -12,14 +12,14 @@ function editDetails(id) {
     const url = `https://69ba05e4-6d14-4d5f-8640-ee67170e853f-bluemix.cloudantnosqldb.appdomain.cloud/jobs/${id}`;
         axios.get(url,  {headers:{Authorization:basicAuth}}).then(res=>{
             console.log(res.data);
-        const movieDetail = res.data;
-        console.log(movieDetail)
-        document.querySelector("#id").value = movieDetail._id;
-        document.querySelector("#rev").value = movieDetail._rev;
-        document.querySelector("#companyname").value = movieDetail.companyname;
+        const jobDetail = res.data;
+        console.log(jobDetail)
+        document.querySelector("#id").value = jobDetail._id;
+        document.querySelector("#rev").value = jobDetail._rev;
+        document.querySelector("#companyname").value = jobDetail.companyname;
         // const imageUrl = movieDetail.imageUrl.substring(movieDetail.imageUrl.lastIndexOf("\\")+1);
         // document.querySelector("#imageUrl").value = imageUrl;   
-        document.querySelector("#skills").value = movieDetail.skills;
+        document.querySelector("#skills").value = jobDetail.skills;
     })
     .catch(err => console.error(err));
 }

@@ -11,7 +11,7 @@ function listJobs(){
           
         }).catch(err=>{
             console.error(err.response);
-            console.log("Unable to fetch Movies");
+            console.log("Unable to fetch data");
         })
 }
 
