@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="view.css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.21.1/axios.min.js"
+    integrity="sha512-bZS47S7sPOxkjU/4Bt0zrhEtWx0y0CRkhEp8IckzK+ltifIIE9EMIMTuT/mEzoIMewUINruDBIR/jJnbguonqQ=="
+    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+    <title>Live User Filter</title>
+  </head>
+  <body>
+    <div class="container">
+      <header class="header">
+        <a href="index.html">
+          <img class="navbarimg" src="images/logo.jpg" alt="logo"/></a>
+        <h4 class="title">Job Search Filter</h4>
+        <small class="subtitle">Search by name/location</small>
+        <input type="text" id="filter" placeholder="Search">
+      </header>
+
+      
+      <ul id="result" class="user-list">
+        <li>
+          <h3></h3>
+        </li>
+      </ul>
+      <a href="index.html"><button>back</button></a>
+    </div>
+    <script src="route.js"></script>
+    <script src="service.js"></script>
+    <script src="view.js"></script>
+    
+  </body>
+</html>

@@ -10,15 +10,17 @@ function login() {
       
       UserService.login(email, password)
         .then(res => {
-          console.log(res.data);
-      if(res.data.docs.length==0){
+          let data = res.data.docs;
+          console.log(data);
+      if(data.length==0){
         alert('please register')
         window.location.href='register.html'
       }
           else{
-          localStorage.setItem("IsLoggedIn",JSON.stringify(true));
+            const user = data[0];
+          localStorage.setItem("IsLoggedIn",JSON.stringify(user));
 
-           localStorage.setItem("userEmail", email);
+           localStorage.setItem("userEmail", JSON.stringify(email) );
           console.log(res.data)
            //savin email in local storage
            

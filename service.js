@@ -13,7 +13,7 @@ class UserService {
         email: email,
         password: password,
       },
-      fields: ["_id", "_rev", "name", "email","appliedJobs"]
+      fields: ["_id", "_rev", "name", "email","role","appliedJobs"]
     };
     console.log(requestData); //for our verification
 
@@ -58,5 +58,20 @@ static updateData(id,rev,obj){
     let allData= this.getAllData("jobs");
    return allData;
    }
+   static compare(listObj) {
+    const url =
+      "https://69ba05e4-6d14-4d5f-8640-ee67170e853f-bluemix.cloudantnosqldb.appdomain.cloud/register/_find"; //registration url
 
+    const compareData = {
+      selector: {
+        compaName : companyName,
+      },
+      fields: [ "name", "email"]
+    };
+    console.log(compareData); //for our verification
+
+    return axios.get(url, compareData, {
+      headers: { Authorization: basicAuth },
+    });
+  }
 }

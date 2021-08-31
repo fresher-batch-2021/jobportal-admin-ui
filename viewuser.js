@@ -16,34 +16,92 @@ function listUsers(){
         })
 }
 
+function listAppliedUsers(jobId){
+    console.log("list Applied USers", jobId);
+    const dbUsername='apikey-v2-a160c2y9h57djbakjap0yesqvh8yvuecd47paczd8l9';
+    const dbPassword='532b6c43f03b7016261e7a66b65a2648';
+    const basicAuth= 'Basic ' + btoa(dbUsername+':'+dbPassword);
+    const url = "https://69ba05e4-6d14-4d5f-8640-ee67170e853f-bluemix.cloudantnosqldb.appdomain.cloud/register/_all_docs?include_docs=true";
+        axios.get(url,  {headers:{Authorization:basicAuth}}).then(res=>{
+            //console.log(res.data);
+            const data = res.data.rows.map(obj=>obj.doc);
+           // console.table(data);
+            let appliedUsers = [];
+            for(let user of data){
+                if(user.appliedJobs){
+                let job = user.appliedJobs.find(obj=> obj.companyName == jobId);
+                if(job){
+                    user.appliedJobs = [job]; //instead of all jobs , assign selected  job 
+                    appliedUsers.push(user);
+                }
+
+            }
+        }
+            formRegisterTableData(appliedUsers);
+          
+        }).catch(err=>{
+            console.error(err);
+            console.log("Unable to fetch data");
+        })
+}
+
+
 function formRegisterTableData(jobs){
     console.table(jobs)
-    console.table(jobs[0].appliedJobs)
+    
     let content = "";
     let i =1;
     for(let jobObj of jobs){
                
+        let appliedJobs = jobObj.appliedJobs;
+        let companyName ;
+        if(appliedJobs != null && appliedJobs.length > 0){
+            companyName = appliedJobs[0].companyName;
+        
         content += `<tr>
         <td>${i++}</td>
         <td>${jobObj.name}</td>
-        <td>${jobObj.email}</td>
+        <td>${jobObj.email}</td> 
+        <td><button type='button' onclick="updateStatus('${jobObj._id}','${companyName}','Accepted')">Accept
+        </button>&nbsp;&nbsp;&nbsp;<button type='button' onclick="updateStatus('${jobObj._id}','${companyName}','Rejected')">Reject</button></td>
+        
        `;
-    // let details=jobObj.appliedJobs
-    // console.table(details)
-    for(let Obj of jobObj.appliedJobs){
+        
+    //    UserService.compare(listObj)
+    //    localStorage.setItem("listObj",JSON.stringify(res.data.docs[0]))
+    //       console.log(JSON.stringify(res.data.docs))
+    //       let usr=JSON.parse(localStorage.getItem("listObj"));
+    //       console.log(usr);
+// let index = listObj.appliedJobs.findIndex(obj=> obj. listObj == companyName);
+// console.log(index);
+
+
+       for(let Obj of jobObj.appliedJobs){
         content += `
-        <td>${Obj.companyName}<br>${Obj.skills}<br>${Obj.status}</td>  
-        <td><button type='button' onclick="updateStatus('${jobObj._id}','${Obj.companyName}','Accepted')">Accept
-            </button>&nbsp;&nbsp;&nbsp;<button type='button' onclick="updateStatus('${jobObj._id}','${Obj.companyName}','Rejected')">Reject</button></td>
-            
-         
-     `;
-               
-    }content+=`</tr>`
+        <td>${Obj.companyName}<br>
+
+    
+    `;
+       }
+    
+
+    
+
 }
-    console.log(content);
+
+
+content+=`</tr>`
+// }).catch(err => {
+//     let errorMessage = err.response.data;
+//     console.error(errorMessage);
+//     console.log("failed");
+//     alert("Error-" + errorMessage);
+//     });
+}
+    //console.log(content);
     document.querySelector("#list-user").innerHTML = content;
 }
+
 listUsers();
 function searchName() {
     let searchName = document.getElementById("searchBox").value;
@@ -95,3 +153,9 @@ alert("Error-" + errorMessage);
 });
 }
 
+let params = new URLSearchParams(window.location.search.substr(1))
+let jobId = params.get("id");
+console.log("selected job Id", jobId)
+if(jobId != null){
+    listAppliedUsers(jobId);
+}

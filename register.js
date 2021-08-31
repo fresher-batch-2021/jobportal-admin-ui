@@ -22,7 +22,7 @@ function register() {
            "name":name,
            "email":email,
            "password":password,
-           "appliedJobs":null
+           "appliedJobs":[]
             
        };
        console.log(registerObj);
