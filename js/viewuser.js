@@ -66,39 +66,16 @@ function formRegisterTableData(jobs){
         </button>&nbsp;&nbsp;&nbsp;<button type='button' onclick="updateStatus('${jobObj._id}','${companyName}','Rejected')">Reject</button></td>
         
        `;
-        
-    //    UserService.compare(listObj)
-    //    localStorage.setItem("listObj",JSON.stringify(res.data.docs[0]))
-    //       console.log(JSON.stringify(res.data.docs))
-    //       let usr=JSON.parse(localStorage.getItem("listObj"));
-    //       console.log(usr);
-// let index = listObj.appliedJobs.findIndex(obj=> obj. listObj == companyName);
-// console.log(index);
-
-
        for(let Obj of jobObj.appliedJobs){
         content += `
         <td>${Obj.companyName}<br>
-
-    
+        <td>${Obj.status}<br></td>
     `;
        }
-    
-
-    
-
 }
-
-
 content+=`</tr>`
-// }).catch(err => {
-//     let errorMessage = err.response.data;
-//     console.error(errorMessage);
-//     console.log("failed");
-//     alert("Error-" + errorMessage);
-//     });
+
 }
-    //console.log(content);
     document.querySelector("#list-user").innerHTML = content;
 }
 

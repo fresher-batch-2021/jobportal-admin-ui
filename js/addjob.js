@@ -1,24 +1,19 @@
 function addJobForm(){
-    event.preventDefault();
-    
     const companyname = document.querySelector("#companyname").value;
     const skills= document.querySelector("#skills").value;
     const imageUrlFilePath= document.querySelector("#imageUrl").value;
     const imageUrl = imageUrlFilePath.substring(imageUrlFilePath.lastIndexOf("\\")+1);
      addJob(companyname,skills,imageUrl);
 }
-
 function addJob(companyname,skills,imageUrl)
 {
     console.log("Add job" , companyname, skills, imageUrl);
-    
     try{
-        
         Validator.isValidString(companyname, "job Title is Mandatory");
         Validator.isValidString(skills, "skill Language is Mandatory");
         Validator.isValidString(imageUrl, "job Image is Mandatory");
         console.log("Job Details are valid");
-        alert("Successfully Added");
+        alert("succesfully Added");
         const jobObj = { companyname:companyname, skills:skills, imageUrl:imageUrl};
         console.log(jobObj);
         const dbUsername='apikey-v2-a160c2y9h57djbakjap0yesqvh8yvuecd47paczd8l9';

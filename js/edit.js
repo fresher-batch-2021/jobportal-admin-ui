@@ -16,9 +16,7 @@ function editDetails(id) {
         console.log(jobDetail)
         document.querySelector("#id").value = jobDetail._id;
         document.querySelector("#rev").value = jobDetail._rev;
-        document.querySelector("#companyname").value = jobDetail.companyname;
-        // const imageUrl = movieDetail.imageUrl.substring(movieDetail.imageUrl.lastIndexOf("\\")+1);
-        // document.querySelector("#imageUrl").value = imageUrl;   
+        document.querySelector("#companyname").value = jobDetail.companyname; 
         document.querySelector("#skills").value = jobDetail.skills;
     })
     .catch(err => console.error(err));

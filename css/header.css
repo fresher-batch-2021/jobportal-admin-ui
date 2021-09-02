@@ -9,23 +9,29 @@ body {
   overflow: hidden;
   background-color: #f1f1f1;
   padding: 20px 10px;
-  height: 0vh;
 }
 
 .header a {
+  
   float: left;
   color: black;
-  text-align:right;
-  padding: 2px;
+  text-align: center;
+  padding: 12px;
   text-decoration: none;
-  font-size: 14px; 
-  /* line-height: 15px; */
+  font-size: 18px; 
+  line-height: 25px;
   border-radius: 4px;
 }
-
-.header a.logo {
-  font-size: 20px;
+img.logo{
+  float: left;
+  margin-top: 0;
+  margin-left: 0;
+  width: 3%;
+}
+.header a.logo-name {
+  font-size: 25px;
   font-weight: bold;
+float: left;
 }
 
 .header a:hover {
@@ -33,49 +39,10 @@ body {
   color: black;
 }
 
-.header a.active {
-  background-color: dodgerblue;
-  color: white;
+.header-right {
+  float: right;
 }
 
-.header-right {
-  float:right;
-}
-.navbarimg{
-  width: 40px;
-  height: 40px;
-  margin-top: 8px;
-  margin-left: 12px;
-}
-.navcontent{
-  clear: both;
-  position: fixed;
-  top: 10px;
-  border: 2px solid #bde0fe;
-  background-color: white;
-  width: 100%;
-}
-.navcontent ul{
-  float: right;
-  list-style: none;
-  margin-top: 10px;
-  margin-right: 20px;
-}
-.navcontent li{
-  font-size: 20px;
-  float: left;
-  margin-left: 20px;
-  padding-left: 7px;
-}
-.navcontent li a:hover{
-  color: blue;
-  font-size: 23px;    
-  border: 1px solid black;
-  border-radius: 5px;
-  letter-spacing: 4px;
-  box-shadow: 12px 10px 12px 1px rgba(49, 56, 59, 0.2);
-  transform: translateY(-2px);
-}
 @media screen and (max-width: 500px) {
   .header a {
     float: none;
@@ -86,5 +53,4 @@ body {
   .header-right {
     float: none;
   }
-  
 }

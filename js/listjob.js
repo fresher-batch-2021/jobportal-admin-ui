@@ -23,7 +23,7 @@ function formJobTableData(jobs){
         
         let imageUrl = "images/" + jobObj.imageUrl;
         content += `<tr><td>${i++}</td><td>
-        <img src="${imageUrl}" alt="${imageUrl}" width="300px" height="150px" />${jobObj.companyname}</td><td>${jobObj.skills}</td><td><a href='edit.html?id=${jobObj._id}'>Edit</a></td><td><button onClick="deleteMovie('${jobObj._id}','${jobObj._rev}')">Delete</button></td></tr>`;
+        <img src="${imageUrl}" alt="${imageUrl}" width="200px" height="100px" />${jobObj.companyname}</td><td>${jobObj.skills}</td><td><a href='edit.html?id=${jobObj._id}'>Edit</a></td><td><button onClick="deleteMovie('${jobObj._id}','${jobObj._rev}')">Delete</button></td></tr>`;
     }
     console.log(content);
     document.querySelector("#list-job").innerHTML = content;

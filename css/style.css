@@ -88,3 +88,84 @@ body {
   }
   
 }
+
+/* table */
+
+.table-content {
+  margin: 40px auto;
+  font-size: 0.9em;
+  font-family: sans-serif;
+  min-width: 75%;
+  border-collapse: collapse;
+  text-align: center;
+}
+
+.table-content thead tr {
+  background-color: #C0C0C0;
+  color: #ffffff;
+}
+
+.table-content tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+
+.table-content th,
+.table-content td {
+  padding: 12px 15px;
+  border: #D3D3D3 solid 1px;
+}
+.table-head {
+  font-size: large;
+  font-style: normal;
+  font-weight: bolder;
+  color: blue;
+}
+.searchBox{
+  margin-left:35%; 
+  width: 30%;
+}
+.titles {
+  margin-top: 80px;
+  text-align: center;
+  color: blue;
+}
+
+form {
+  background-color: #DCDCDC;
+  border: 1px solid #A9A9A9;
+  padding: 15px;
+  margin: 20px 500px 100px 500px;
+}
+
+input,
+select {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  margin-bottom: 20px;
+}
+
+.formButton {
+  width: 100%;
+  background-color: #4CAF50;
+  color: white;
+  padding: 14px 20px;
+  margin-right: 10px;
+  margin-top: 15px;
+  border: none;
+  border-radius: 4px;
+}
+
+.formHead {
+  text-align: center;
+  font-size: 25px;
+  font-family: Arial, Helvetica, sans-serif;
+  color: blue;
+  margin-top: 150px;
+}
+
+
