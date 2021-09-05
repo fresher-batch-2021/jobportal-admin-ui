@@ -4,16 +4,15 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>List Job</title>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.21.1/axios.min.js"
         integrity="sha512-bZS47S7sPOxkjU/4Bt0zrhEtWx0y0CRkhEp8IckzK+ltifIIE9EMIMTuT/mEzoIMewUINruDBIR/jJnbguonqQ=="
         crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 </head>
 <body>
     <h3>Job Admin</h3>
-    <input type="text " id="searchBox" class="searchBox" placeholder="Search For userName" onkeyup="searchName()" autocomplete="off">
+    <input type="text " id="searchBox" class="searchBox" placeholder="Search CompanyName" onkeyup="searchName()" autocomplete="off">
     <table id="myTable" border="1">
-
 <thead>
     <tr>
         <th>S.no</th>
@@ -21,24 +20,14 @@
         <th>skills</th>
         <th>Edit</th>
         <th>delete</th>
-        
     </tr>
-    
 </thead>    
         <tbody id="list-job">
-         
-        
-            
-         
-
         </tbody>
-        
-        
     </table>
+    <a href="index.html">back</a>
     <script src="js/route.js"></script>
     <script src="js/listjob.js"></script>
     <script src="js/deletejob.js"></script>
-    
-    <!-- <script src="assets/delete-movie.js"></script> -->
 </body>
 </html>

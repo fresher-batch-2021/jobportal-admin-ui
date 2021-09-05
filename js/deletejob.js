@@ -1,5 +1,5 @@
 function deleteJob(jobId,revId) {
-  console.log("delete movie", jobId, revId);
+  console.log("delete job", jobId, revId);
   if (jobId == null) {
     alert("JobId is mandatory");
   } else {
@@ -10,9 +10,6 @@ function deleteJob(jobId,revId) {
       "https://69ba05e4-6d14-4d5f-8640-ee67170e853f-bluemix.cloudantnosqldb.appdomain.cloud/jobs/"+jobId+"?rev="+revId;
       console.log(url);
     axios.delete(url,{headers:{Authorization:basicAuth}}).then(res => {
-        // const data = res.data;
-        // console.log(data);
-        alert("hi");
         console.log("Successfully Deleted");
       })
       .catch((err) => {
@@ -21,4 +18,4 @@ function deleteJob(jobId,revId) {
       });
   }
 }
-  //deleteMovie();
+  

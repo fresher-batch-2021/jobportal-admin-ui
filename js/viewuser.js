@@ -23,9 +23,7 @@ function listAppliedUsers(jobId){
     const basicAuth= 'Basic ' + btoa(dbUsername+':'+dbPassword);
     const url = "https://69ba05e4-6d14-4d5f-8640-ee67170e853f-bluemix.cloudantnosqldb.appdomain.cloud/register/_all_docs?include_docs=true";
         axios.get(url,  {headers:{Authorization:basicAuth}}).then(res=>{
-            //console.log(res.data);
             const data = res.data.rows.map(obj=>obj.doc);
-           // console.table(data);
             let appliedUsers = [];
             for(let user of data){
                 if(user.appliedJobs){
@@ -34,18 +32,15 @@ function listAppliedUsers(jobId){
                     user.appliedJobs = [job]; //instead of all jobs , assign selected  job 
                     appliedUsers.push(user);
                 }
-
-            }
+             }
         }
-            formRegisterTableData(appliedUsers);
+        formRegisterTableData(appliedUsers);
           
         }).catch(err=>{
             console.error(err);
             console.log("Unable to fetch data");
         })
 }
-
-
 function formRegisterTableData(jobs){
     console.table(jobs)
     
@@ -70,6 +65,7 @@ function formRegisterTableData(jobs){
         content += `
         <td>${Obj.companyName}<br>
         <td>${Obj.status}<br></td>
+        <td>${Obj.appliedDate}</td>       
     `;
        }
 }
@@ -97,8 +93,6 @@ function searchName() {
     }
 }
 function updateStatus(_id,companyName, status){
-    
-   
     const dbUsername='apikey-v2-a160c2y9h57djbakjap0yesqvh8yvuecd47paczd8l9';
     const dbPassword='532b6c43f03b7016261e7a66b65a2648';
     const basicAuth= 'Basic ' + btoa(dbUsername+':'+dbPassword);

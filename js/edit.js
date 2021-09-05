@@ -16,7 +16,7 @@ function editDetails(id) {
         console.log(jobDetail)
         document.querySelector("#id").value = jobDetail._id;
         document.querySelector("#rev").value = jobDetail._rev;
-        document.querySelector("#companyname").value = jobDetail.companyname; 
+        document.querySelector("#companyName").value = jobDetail.companyName; 
         document.querySelector("#skills").value = jobDetail.skills;
     })
     .catch(err => console.error(err));
@@ -27,14 +27,14 @@ function modifyDetails(){
 
     let id = document.querySelector("#id").value;
     let rev = document.querySelector("#rev").value;
-    let companyname = document.querySelector("#companyname").value;
+    let companyName = document.querySelector("#companyName").value;
     let imageUrlFullPath = document.querySelector("#imageUrl").value;
- const imageUrl =imageUrlFullPath.substring(imageUrlFullPath.lastIndexOf("\\")+1);
+    const imageUrl =imageUrlFullPath.substring(imageUrlFullPath.lastIndexOf("\\")+1);
     let skills = document.querySelector("#skills").value;
     let modifyDetails = {
         "_id": id,
         "_rev": rev,
-        "companyname": companyname,
+        "companyName": companyName,
         "imageUrl": imageUrl,
         "skills":skills
         }
