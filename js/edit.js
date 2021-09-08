@@ -6,11 +6,7 @@ console.log(id);
 
 function editDetails(id) {
     console.log(id);
-    const dbUsername='apikey-v2-a160c2y9h57djbakjap0yesqvh8yvuecd47paczd8l9';
-    const dbPassword='532b6c43f03b7016261e7a66b65a2648';
-    const basicAuth= 'Basic ' + btoa(dbUsername+':'+dbPassword);
-    const url = `https://69ba05e4-6d14-4d5f-8640-ee67170e853f-bluemix.cloudantnosqldb.appdomain.cloud/jobs/${id}`;
-        axios.get(url,  {headers:{Authorization:basicAuth}}).then(res=>{
+    JobService.editService(id).then(res=>{
             console.log(res.data);
         const jobDetail = res.data;
         console.log(jobDetail)

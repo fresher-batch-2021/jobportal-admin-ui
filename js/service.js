@@ -46,19 +46,33 @@ static getRegisterData(id){
    return allData;
    }
    static compare(listObj) {
-    const url =
-      "https://69ba05e4-6d14-4d5f-8640-ee67170e853f-bluemix.cloudantnosqldb.appdomain.cloud/register/_find"; //registration url
-
     const compareData = {
       selector: {
         compaName : companyName,
       },
       fields: [ "name", "email"]
     };
-    console.log(compareData); //for our verification
+    console.log(compareData);
+    const url =
+      "https://69ba05e4-6d14-4d5f-8640-ee67170e853f-bluemix.cloudantnosqldb.appdomain.cloud/register/_find"; //registration url
+
+    //for our verification
 
     return axios.get(url, compareData, {
       headers: { Authorization: basicAuth },
     });
   }
+ static listUsersService(){
+  const url = "https://69ba05e4-6d14-4d5f-8640-ee67170e853f-bluemix.cloudantnosqldb.appdomain.cloud/register/_all_docs?include_docs=true";
+ return axios.get(url,  {headers:{Authorization:basicAuth}})
+ }
+ static appliedUserService(){
+  const url = "https://69ba05e4-6d14-4d5f-8640-ee67170e853f-bluemix.cloudantnosqldb.appdomain.cloud/register/_all_docs?include_docs=true";
+ return  axios.get(url,  {headers:{Authorization:basicAuth}})
+ }
+ static updateService(_id,companyName, status){
+  const url = "https://69ba05e4-6d14-4d5f-8640-ee67170e853f-bluemix.cloudantnosqldb.appdomain.cloud/register/"+ _id;
+  console.log('update'+_id+',status='+status);
+ return  axios.get(url,_id,companyName, status,{headers:{'Authorization':basicAuth}})
+ }
 }

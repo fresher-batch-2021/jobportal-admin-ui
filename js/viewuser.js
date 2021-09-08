@@ -1,10 +1,6 @@
 function listUsers(){
     console.log("list users");
-    const dbUsername='apikey-v2-a160c2y9h57djbakjap0yesqvh8yvuecd47paczd8l9';
-    const dbPassword='532b6c43f03b7016261e7a66b65a2648';
-    const basicAuth= 'Basic ' + btoa(dbUsername+':'+dbPassword);
-    const url = "https://69ba05e4-6d14-4d5f-8640-ee67170e853f-bluemix.cloudantnosqldb.appdomain.cloud/register/_all_docs?include_docs=true";
-        axios.get(url,  {headers:{Authorization:basicAuth}}).then(res=>{
+    UserService.listUsersService().then(res=>{
             console.log(res.data);
             const data = res.data.rows.map(obj=>obj.doc);
             console.table(data);
@@ -18,11 +14,7 @@ function listUsers(){
 
 function listAppliedUsers(jobId){
     console.log("list Applied USers", jobId);
-    const dbUsername='apikey-v2-a160c2y9h57djbakjap0yesqvh8yvuecd47paczd8l9';
-    const dbPassword='532b6c43f03b7016261e7a66b65a2648';
-    const basicAuth= 'Basic ' + btoa(dbUsername+':'+dbPassword);
-    const url = "https://69ba05e4-6d14-4d5f-8640-ee67170e853f-bluemix.cloudantnosqldb.appdomain.cloud/register/_all_docs?include_docs=true";
-        axios.get(url,  {headers:{Authorization:basicAuth}}).then(res=>{
+    UserService.appliedUserService().then(res=>{
             const data = res.data.rows.map(obj=>obj.doc);
             let appliedUsers = [];
             for(let user of data){
@@ -93,12 +85,7 @@ function searchName() {
     }
 }
 function updateStatus(_id,companyName, status){
-    const dbUsername='apikey-v2-a160c2y9h57djbakjap0yesqvh8yvuecd47paczd8l9';
-    const dbPassword='532b6c43f03b7016261e7a66b65a2648';
-    const basicAuth= 'Basic ' + btoa(dbUsername+':'+dbPassword);
-    const url = "https://69ba05e4-6d14-4d5f-8640-ee67170e853f-bluemix.cloudantnosqldb.appdomain.cloud/register/"+ _id;
-    console.log('update'+_id+',status='+status);
-    axios.get(url,{headers:{'Authorization':basicAuth}}).then(result=>{
+    UserService.updateService(_id,companyName, status).then(result=>{
 const applicationJobs = result.data;
 let index = applicationJobs.appliedJobs.findIndex(obj=> obj.companyName == companyName);
 console.log(index);
