@@ -6,14 +6,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Addjobs</title>
     <link rel="stylesheet" href="css/style.css" />
-    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
+<!-- axios -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.21.1/axios.min.js" integrity="sha512-bZS47S7sPOxkjU/4Bt0zrhEtWx0y0CRkhEp8IckzK+ltifIIE9EMIMTuT/mEzoIMewUINruDBIR/jJnbguonqQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <!-- toaster -->
     <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
-    <script src="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>  
+    <script src="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
 </head>
   <body>
     <h1 class="titles">Add job</h1>
-    <form onsubmit="addJobForm()">
+    <form id="addJobForm" method="POST">
       <label for="companyName"><strong>Companyname</strong>
       <input type="text" placeholder="companyName"name="companyName"id="companyName"required> </label><br>
 
@@ -25,10 +27,12 @@
       <label for="image"><strong>imageUrl</strong>
         <input type="file" required name="image" id="imageUrl" /></label><br>
         
-      <button class="formButton">Apply</button>
+      <button type="submit" class="formButton" id="applyButton">Apply</button>
       <a href="index.html">Back</a>
     </form>
+    
     <script src="js/route.js"></script>
+    <script src="js/env.js"></script>
     <script src="js/adminservice.js"></script>
     <script src="js/validator.js"></script>
     <script src="js/addjob.js"></script>

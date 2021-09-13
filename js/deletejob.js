@@ -11,6 +11,7 @@ function deleteJob(jobId,revId) {
       console.log(url);
     axios.delete(url,{headers:{Authorization:basicAuth}}).then(res => {
         console.log("Successfully Deleted");
+        window.location.reload()
       })
       .catch((err) => {
         console.log(err.response.data);
